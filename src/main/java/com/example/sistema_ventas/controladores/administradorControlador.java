@@ -21,7 +21,7 @@ public class administradorControlador implements Initializable {
     public void VentanaVenta() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("ventanaVenta.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("ventana-venta.fxml"));
 
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
