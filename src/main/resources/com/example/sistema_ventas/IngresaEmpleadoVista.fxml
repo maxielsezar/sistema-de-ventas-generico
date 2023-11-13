@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="229.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controller.NuevoEmpleadoController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Label layoutX="40.0" layoutY="48.0" text="Nombre:">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+      <TextField fx:id="ingresa_nombre_empleado" layoutX="40.0" layoutY="65.0" prefHeight="25.0" prefWidth="172.0" />
+      <Label layoutX="232.0" layoutY="45.0" text="Apellido:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ingresa_apellido_empleado" layoutX="232.0" layoutY="66.0" prefHeight="25.0" prefWidth="172.0" />
+      <Label layoutX="41.0" layoutY="97.0" text="Documento:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ingresa_documento_empleado" layoutX="40.0" layoutY="116.0" prefHeight="25.0" prefWidth="172.0" />
+      <Label layoutX="233.0" layoutY="97.0" text="Telefono:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ingresa_telefono_empleado" layoutX="232.0" layoutY="116.0" prefHeight="25.0" prefWidth="172.0" />
+      <Button fx:id="guardar_empleado" layoutX="249.0" layoutY="164.0" mnemonicParsing="false" text="Contratar :D" />
+   </children>
+</AnchorPane>

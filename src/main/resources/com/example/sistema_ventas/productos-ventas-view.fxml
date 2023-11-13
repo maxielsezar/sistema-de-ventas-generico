@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="312.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label layoutX="14.0" layoutY="15.0" prefHeight="17.0" prefWidth="205.0" text="Buscador:" />
+   <CheckBox fx:id="buscar_producto" layoutX="387.0" layoutY="38.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="13.0" />
+   <TextField fx:id="ingresa_busqueda" layoutX="14.0" layoutY="35.0" prefHeight="25.0" prefWidth="367.0" />
+   <TableView fx:id="tabla_productos" layoutX="13.0" layoutY="70.0" prefHeight="147.0" prefWidth="622.0">
+     <columns>
+       <TableColumn fx:id="columna_codigo" prefWidth="59.0" text="Código" />
+       <TableColumn fx:id="columna_nombre" prefWidth="192.0" text="Nombre" />
+         <TableColumn fx:id="columna_marca" prefWidth="145.0" text="Marca" />
+         <TableColumn fx:id="columna_precio_unidad" prefWidth="156.0" text="Precio/Unidad" />
+         <TableColumn fx:id="columna_stock" prefWidth="85.0" text="Stock" />
+     </columns>
+   </TableView>
+   <Button fx:id="nuevo_producto" layoutX="14.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Agregar" />
+   <Button fx:id="modificar_producto" layoutX="117.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Modificar" />
+   <Button fx:id="borrar_producto" layoutX="222.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Borrar" />
+
+</AnchorPane>
