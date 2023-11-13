@@ -1,5 +1,6 @@
 package com.example.sistema_ventas.controlers;
 
+import com.example.sistema_ventas.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,21 +21,18 @@ public class empleadoController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
     @FXML
-    public void VentanaVenta() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("ventanaVenta.fxml"));
+    public void VentanaVenta() throws IOException {
 
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setTitle("ventana venta");
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(HelloApplication.class.getResource("ventanaVenta.fxml"));
 
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("ventana venta");
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        stage.show();
     }
     @FXML
         public void VentanaCaja() {
