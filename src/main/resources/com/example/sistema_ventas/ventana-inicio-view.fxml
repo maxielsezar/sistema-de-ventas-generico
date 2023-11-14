@@ -6,19 +6,20 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.VentanaInicioController">
    <children>
-      <Button fx:id="btnIngresar" layoutX="84.0" layoutY="398.0" mnemonicParsing="false" onAction="#Ingresar" text="Ingresar" />
-      <Label layoutX="76.0" layoutY="220.0" text="Usuario">
+      <Button fx:id="btnIngresar" layoutX="84.0" layoutY="398.0" mnemonicParsing="false" text="Ingresar" onAction="#btnIngresar" />
+      <Label layoutX="76.0" layoutY="69.0" text="Usuario">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="307.0" text="Contraseña">
+      <Label layoutX="60.0" layoutY="156.0" text="Contraseña">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUsuario" layoutX="36.0" layoutY="267.0" />
-      <PasswordField fx:id="txtContraseña" layoutX="36.0" layoutY="349.0" />
+      <TextField fx:id="txtUsuario" layoutX="36.0" layoutY="116.0" />
+      <PasswordField fx:id="txtContraseña" layoutX="36.0" layoutY="198.0" />
+      <Button fx:id="btnEmpleado" layoutX="84.0" layoutY="363.0" mnemonicParsing="false" text="empleado" onAction="#btnEmpleado" />
 
 
    </children>

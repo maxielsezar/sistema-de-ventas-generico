@@ -2,6 +2,7 @@ package com.example.sistema_ventas.controlers;
 
 import com.example.sistema_ventas.modelo.coneccionBD.usuario;
 import com.example.sistema_ventas.HelloApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,43 +21,42 @@ public class VentanaInicioController implements Initializable {
 
     public TextField txtUsuario;
     public PasswordField txtContraseña;
-    public Button btnIngresar;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
-    @FXML
-    public void Ingresar() {
-        if(usuario.validarUsuario(txtUsuario.getText(), txtContraseña.getText())==1){
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(HelloApplication.class.getResource("inicio-empleado-view.fxml"));
+    public void btnIngresar(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(HelloApplication.class.getResource("inicio-administrador-view.fxml"));
 
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = new Stage();
-                stage.setTitle("ventana empleado");
-                stage.setScene(scene);
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.show();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }else {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(HelloApplication.class.getResource("inicio-administrador-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("ventana administrador");
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
 
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = new Stage();
-                stage.setTitle("ventana administrador");
-                stage.setScene(scene);
-                stage.initModality(Modality.APPLICATION_MODAL);
-
-                stage.show();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
+    public void btnEmpleado(){
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(HelloApplication.class.getResource("inicio-empleado-view.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("ventana empleado");
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        } catch (IOException e) {
+        throw new RuntimeException(e);
+        }
+    }
+
+
+
 
 }
