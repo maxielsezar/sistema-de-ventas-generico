@@ -20,7 +20,7 @@
          <TableColumn fx:id="columna_stock" prefWidth="89.0" text="Stock" />
      </columns>
    </TableView>
-   <Button fx:id="nuevo_producto" layoutX="14.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Agregar" />
+   <Button fx:id="nuevo_producto" layoutX="14.0" layoutY="237.0" mnemonicParsing="false" onAction="#agregarProducto" prefHeight="25.0" prefWidth="95.0" text="Agregar" />
    <Button fx:id="modificar_producto" layoutX="117.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Modificar" />
    <Button fx:id="borrar_producto" layoutX="222.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Borrar" />
 

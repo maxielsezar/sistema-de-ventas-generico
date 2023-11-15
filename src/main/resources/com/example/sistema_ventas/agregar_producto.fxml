@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="271.0" prefWidth="172.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.AgregarProductoControler">
+   <children>
+      <TextField fx:id="nombre" layoutX="12.0" layoutY="41.0" />
+      <TextField fx:id="marca" layoutX="12.0" layoutY="114.0" />
+      <TextField fx:id="precioUnidad" layoutX="12.0" layoutY="187.0" />
+      <Label layoutX="12.0" layoutY="14.0" text="nombre" />
+      <Label layoutX="12.0" layoutY="90.0" text="marca" />
+      <Label layoutX="12.0" layoutY="161.0" text="precio/unidad" />
+      <Button layoutX="60.0" layoutY="223.0" mnemonicParsing="false" text="agregar" />
+   </children>
+</AnchorPane>
