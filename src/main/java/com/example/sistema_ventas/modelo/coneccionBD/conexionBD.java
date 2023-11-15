@@ -8,7 +8,7 @@ public class conexionBD {
     public Connection getConnection(){
         String databaseName ="sistema_ventas";
         String databaseUser ="root";
-        String databasePassword ="opce03";
+        String databasePassword ="opcd04";
         String url = "jdbc:mysql://localhost/" + databaseName;
 
         try{
