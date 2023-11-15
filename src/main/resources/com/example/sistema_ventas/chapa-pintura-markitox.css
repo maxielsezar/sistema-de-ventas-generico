@@ -1,0 +1,146 @@
+
+*{
+-fx-primary-color: #FDEDCE;
+-fx-secondary-color:#FD9115;
+
+}
+.tab {
+    -fx-background-color: -fx-secondary-color;
+    -fx-font: 16px "SuperFrench" ;
+    -fx-tab-min-width:120.0;
+    -fx-tab-max-width:120.0;
+    -fx-tab-min-height:200.0;
+    -fx-tab-max-height:200.0;
+    -fx-pref-width:120.0;
+    -fx-pref-height:200.0;
+    -fx-wrap-text:true;
+    -fx-padding:5px;
+}
+.tab:selected{-fx-background-color:-fx-primary-color ;
+                -fx-border-color:transparent;
+                -fx-wrap-text:true;}
+.tab-pane {
+    -fx-background-color: linear-gradient(to bottom,  -fx-primary-color,-fx-secondary-color);
+
+}
+.tab:hover{-fx-background-color:white;
+            -fx-cursor:hand;
+}
+.tab-header-background {-fx-background-color: -fx-secondary-color;}
+.tab-pane .tab:selected{-fx-background-color:-fx-secondary-color;}
+
+/* Estilo para rotar solo el texto de un Tab */
+.rotate-tab-text .tab-label {
+    -fx-rotate: 90deg; /* Ajusta el ángulo de rotación según tus necesidades */
+}
+.table-view {   -fx-background-color: transparent;
+                -fx-padding: 10px;
+}
+
+.table-view .cell { -fx-text-fill:BLACK;
+                    -fx-text-alignment:CENTER;
+
+}
+
+.table-view .column-header-background .filler {-fx-background-color: transparent;
+}
+
+.table-view .corner {-fx-background-color: transparent;}
+
+.table-view .column-header-background{  -fx-background-color: -fx-secondary-color;
+                                        -fx-border-color: transparent;
+                                        -fx-opacity:0.8;
+                                        -fx-background-radius: 10 10 0 0;
+
+}
+
+.table-view .column-header {-fx-background-color: -fx-secondary-color;
+                            -fx-background-radius: 10 10 0 0;
+                            -fx-border-radius: 10 10 0 0;
+}
+.table-view .table-cell{-fx-border-color: white;
+                        -fx-border-width: 0.4;
+                        -fx-padding: 2 0 2 10px;
+
+}
+.table-row-cell: hover {-fx-background-color:-fx-primary-color;}
+
+.table-view:row-selection .table-row-cell:filled:hover {
+    -fx-background-color: white;
+}
+
+.table-view:row-selection .table-row-cell:filled:selected {
+    -fx-background-color: #2fd6ff;
+    -fx-opacity:1;
+}
+
+.table-row-cell: selected {-fx-background-color: white;}
+
+.table-row-cell: odd{
+    -fx-background-color: #77C2E5;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+    -fx-opacity: 0.8;
+
+}
+
+.table-row-cell: even{
+    -fx-background-color: #77C2E5;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+    -fx-opacity: 0.7;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  -fx-secondary-color;
+    -fx-opacity: 0.9;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color: -fx-secondary-color ;
+    -fx-opacity: 0.9;
+    -fx-padding: 2;
+}
+
+.table-row-cell: highlighted {
+    -fx-background-color: #81c483;
+    -fx-background-radius: 15px;
+    -fx-text-alignment:CENTER;
+}
+
+.button{
+     -fx-background-color: -fx-secondary-color;
+              -fx-border-color: #FFFFFF;
+              -fx-border-width: 2;
+              -fx-text-fill: #FFFFFF;
+              -fx-font-family: "SuperFrench";
+              -fx-font-style: italic;
+              -fx-font-size: 18px;
+              -fx-background-radius: 10 10 10 10;
+              -fx-border-radius: 10 10 10 10;
+ }
+
+ .button:hover { -fx-background-color: #333333;
+                -fx-font-size: 22px;
+ }
+
+ .button:pressed {  -fx-background-color: #FFFFFF;
+                    -fx-text-fill: #000000;
+ 	                -fx-font-weight: bold;
+ }

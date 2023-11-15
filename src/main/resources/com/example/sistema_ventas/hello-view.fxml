@@ -1,16 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.sistema_ventas.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controladores.administradorControlador">
+   <AnchorPane layoutY="42.0">
+      <children>
+         <TabPane layoutY="-40.0" prefHeight="700.0" prefWidth="1300.0" side="LEFT" stylesheets="@chapa-pintura-markitox.css" tabClosingPolicy="UNAVAILABLE" tabMinHeight="200.0" tabMinWidth="100.0">
+           <tabs>
+             <Tab fx:id="producto" text="Productos">
+               <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="630.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+                       <padding>
+                           <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                       </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+                       <Label layoutX="14.0" layoutY="18.0" prefHeight="84.0" prefWidth="205.0" text="Buscador:">
+                           <font>
+                              <Font name="SuperFrench" size="12.0" />
+                           </font></Label>
+                       <CheckBox fx:id="buscar_producto" layoutX="984.0" layoutY="39.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="13.0" />
+                       <TextField fx:id="ingresa_busqueda" layoutX="14.0" layoutY="35.0" prefHeight="25.0" prefWidth="967.0" />
+                       <TableView fx:id="tabla_productos" layoutX="13.0" layoutY="70.0" prefHeight="494.0" prefWidth="1153.0">
+                           <columns>
+                               <TableColumn fx:id="columna_codigo" prefWidth="59.0" text="Código" />
+                               <TableColumn fx:id="columna_nombre" prefWidth="192.0" text="Nombre" />
+                               <TableColumn fx:id="columna_marca" prefWidth="145.0" text="Marca" />
+                               <TableColumn fx:id="columna_precio_unidad" prefWidth="156.0" text="Precio/Unidad" />
+                               <TableColumn fx:id="columna_stock" prefWidth="85.0" text="Stock" />
+                           </columns>
+                       </TableView>
+                       <Button fx:id="nuevo_producto" layoutX="481.0" layoutY="586.0" mnemonicParsing="false" prefWidth="95.0" text="Agregar" />
+                       <Button fx:id="modificar_producto" layoutX="584.0" layoutY="586.0" mnemonicParsing="false" prefWidth="96.0" text="Modificar" />
+                       <Button fx:id="borrar_producto" layoutX="689.0" layoutY="586.0" mnemonicParsing="false" prefWidth="95.0" text="Borrar" />
+
+                   </AnchorPane>
+               </content>
+             </Tab>
+             <Tab fx:id="venta" text="Venta">
+                 <content>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+                         <children>
+                             <TableView fx:id="tabla" layoutX="4.0" layoutY="53.0" prefHeight="437.0" prefWidth="1166.0">
+                                 <columns>
+                                     <TableColumn fx:id="c_producto" prefWidth="210.0" text="producto" />
+                                     <TableColumn fx:id="c_cantida" prefWidth="199.0" text="cantidad" />
+                                     <TableColumn fx:id="c_precio" prefWidth="169.0" text="precio X unidad" />
+
+                                     <TableColumn fx:id="c_total" prefWidth="229.0" text="precio total" />
+                                 </columns>
+                             </TableView>
+                             <Button fx:id="añadir_producto" layoutX="574.0" layoutY="502.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="52.0" text="añadir" />
+                             <ChoiceBox fx:id="CBproducto" layoutX="244.0" layoutY="504.0" prefWidth="150.0" />
+                             <Label layoutX="690.0" layoutY="504.0" text="total de venta " />
+                             <Label fx:id="totalVenta" layoutX="653.0" layoutY="521.0" prefHeight="25.0" prefWidth="288.0" />
+                             <TextField fx:id="t_producto" layoutX="405.0" layoutY="504.0" />
+                             <Button fx:id="realizarCompra" layoutX="322.0" layoutY="561.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="171.0" text="realizar compra" />
+                             <ChoiceBox fx:id="tipoPago" layoutX="549.0" layoutY="578.0" prefHeight="25.0" prefWidth="132.0" />
+                             <Label layoutX="589.0" layoutY="553.0" text="tipo de pago" />
+                             <ChoiceBox fx:id="CBcaja" layoutX="104.0" layoutY="14.0" prefHeight="25.0" prefWidth="52.0" />
+                             <Label layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="90.0" text="numero de caja:" />
+                             <ChoiceBox fx:id="CBempleado" layoutX="282.0" layoutY="14.0" prefHeight="25.0" prefWidth="52.0" />
+                             <Label layoutX="192.0" layoutY="18.0" prefHeight="17.0" prefWidth="90.0" text="id de empleado:" />
+
+                         </children>
+                     </AnchorPane>
+                 </content>
+             </Tab>
+          <Tab fx:id="caja" text="Caja">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+          </Tab>
+      </tabs>
+         </TabPane>
+      </children>
+   </AnchorPane>
+</AnchorPane>

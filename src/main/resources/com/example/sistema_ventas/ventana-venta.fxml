@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controladores.ventaControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controladores.ventaControlador">
    <children>
       <TableView fx:id="tabla" layoutX="4.0" layoutY="53.0" prefHeight="200.0" prefWidth="806.0">
         <columns>
@@ -28,4 +28,4 @@
       <Label layoutX="192.0" layoutY="18.0" prefHeight="17.0" prefWidth="90.0" text="id de empleado:" />
 
    </children>
-</Pane>
+</AnchorPane>

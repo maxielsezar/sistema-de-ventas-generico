@@ -19,20 +19,14 @@ import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ventaControlador implements Initializable {
-
     @FXML
     public TableView<producto_tabla_venta> tabla;
     public TableColumn<producto_tabla_venta,String> c_producto;
-    public ChoiceBox CBproducto;
-    public ChoiceBox CBcaja;
-    public ChoiceBox CBempleado;
-    public TableColumn c_cantida;
-    public TableColumn c_precio;
-    public TableColumn c_total;
+    public ChoiceBox CBproducto,CBcaja,CBempleado,tipoPago;
+    public TableColumn c_cantida,c_precio, c_total;
     public Label totalVenta;
     public TextField t_producto;
     public Button añadir_producto;
-    public ChoiceBox tipoPago;
 
     ObservableList<producto_tabla_venta> lista_producto = FXCollections.observableArrayList();
 
@@ -74,9 +68,6 @@ public class ventaControlador implements Initializable {
         pagos.add("efectivo");
         pagos.add("tarjeta");
         tipoPago.setItems(pagos);
-
-
-
 
         c_producto.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         c_cantida.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
