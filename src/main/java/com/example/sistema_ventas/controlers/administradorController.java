@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class administradorController implements Initializable {
+    @FXML
     public Button venta,caja,producto,empleado;
 
     @Override

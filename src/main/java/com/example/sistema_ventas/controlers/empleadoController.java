@@ -14,6 +14,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class empleadoController implements Initializable {
+
+    @FXML
     public Button venta;
     public Button caja;
     public Button producto;
@@ -35,37 +37,31 @@ public class empleadoController implements Initializable {
         stage.show();
     }
     @FXML
-        public void VentanaCaja() {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("caja-view.fxml"));
+    public void VentanaCaja() throws IOException {
 
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = new Stage();
-                stage.setTitle("ventana caja");
-                stage.setScene(scene);
-                stage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(HelloApplication.class.getResource("caja-view.fxml"));
 
-                stage.show();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("ventana caja");
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        stage.show();
     }
     @FXML
-    public void VentanaProducto() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("productos-ventas-view.fxml"));
+    public void VentanaProducto() throws IOException {
 
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setTitle("ventana producto");
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(HelloApplication.class.getResource("productos-ventas-view.fxml"));
 
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("ventana producto");
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        stage.show();
     }
 }
