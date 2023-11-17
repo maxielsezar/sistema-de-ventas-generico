@@ -7,8 +7,8 @@ public class producto_tabla_stock extends producto {
 
 
 
-    public producto_tabla_stock(int id, String nombre, int precio_x_unidad, String marca, Integer stock) {
-        super(id, nombre, precio_x_unidad, marca);
+    public producto_tabla_stock(int id, String nombre, int precio, String marca, Integer stock, String unidad_medida) {
+        super(id, nombre, precio, marca, unidad_medida);
         this.stock = stock;
     }
 

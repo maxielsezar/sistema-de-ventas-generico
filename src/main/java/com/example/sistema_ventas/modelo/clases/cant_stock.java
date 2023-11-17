@@ -4,9 +4,9 @@ public class cant_stock  {
 
     int id;
     int id_producto;
-    int cantidad;
+    Double cantidad;
 
-    public cant_stock(int id, int id_producto, int cantidad) {
+    public cant_stock(int id, int id_producto, Double cantidad) {
         this.id = id;
         this.id_producto = id_producto;
         this.cantidad = cantidad;
@@ -28,11 +28,11 @@ public class cant_stock  {
         this.id_producto = id_producto;
     }
 
-    public int getCantidad() {
+    public Double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(Double cantidad) {
         this.cantidad = cantidad;
     }
 }

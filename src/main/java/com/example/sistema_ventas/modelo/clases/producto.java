@@ -6,15 +6,18 @@ public class producto {
 
     String nombre;
 
-    int precio_x_unidad;
+    int precio;
 
     String marca;
 
-    public producto(int id, String nombre, int precio_x_unidad, String marca) {
+    String unidad_medida;
+
+    public producto(int id, String nombre, int precio, String marca, String unidad_medida) {
         this.id_producto = id;
         this.nombre = nombre;
-        this.precio_x_unidad = precio_x_unidad;
+        this.precio = precio;
         this.marca = marca;
+        this.unidad_medida = unidad_medida;
     }
 
     public int getId_producto() {
@@ -33,12 +36,12 @@ public class producto {
         this.nombre = nombre;
     }
 
-    public int getPrecio_x_unidad() {
-        return precio_x_unidad;
+    public int getPrecio() {
+        return precio;
     }
 
-    public void setPrecio_x_unidad(int precio_x_unidad) {
-        this.precio_x_unidad = precio_x_unidad;
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     public String getMarca() {
@@ -47,5 +50,13 @@ public class producto {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public String getUnidad_medida() {
+        return unidad_medida;
+    }
+
+    public void setUnidad_medida(String unidad_medida) {
+        this.unidad_medida = unidad_medida;
     }
 }

@@ -1,7 +1,7 @@
 package com.example.sistema_ventas.controlers;
 
 import com.example.sistema_ventas.modelo.clases.empleado;
-import com.example.sistema_ventas.modelo.coneccionBD.seleccionarBD.seleccionarBD_empleado;
+import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.seleccionarBD_empleado;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

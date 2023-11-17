@@ -1,6 +1,6 @@
 package com.example.sistema_ventas.controlers;
 
-import com.example.sistema_ventas.modelo.coneccionBD.usuario;
+import com.example.sistema_ventas.modelo.conexionBD.usuario;
 import com.example.sistema_ventas.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

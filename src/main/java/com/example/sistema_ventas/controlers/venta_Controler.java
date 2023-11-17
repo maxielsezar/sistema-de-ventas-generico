@@ -1,29 +1,22 @@
 package com.example.sistema_ventas.controlers;
 
 import com.example.sistema_ventas.modelo.clases.*;
-import com.example.sistema_ventas.modelo.coneccionBD.actualizarBD.actualizarBD_cant_stock;
-import com.example.sistema_ventas.modelo.coneccionBD.guardarBD.guardarBD_registro_caja;
-import com.example.sistema_ventas.modelo.coneccionBD.guardarBD.guardarBD_venta;
-import com.example.sistema_ventas.modelo.coneccionBD.guardarBD.guardarBD_venta_producto;
-import com.example.sistema_ventas.modelo.coneccionBD.seleccionarBD.*;
+import com.example.sistema_ventas.modelo.conexionBD.actualizarBD.actualizarBD_cant_stock;
+import com.example.sistema_ventas.modelo.conexionBD.guardarBD.guardarBD_registro_caja;
+import com.example.sistema_ventas.modelo.conexionBD.guardarBD.guardarBD_venta;
+import com.example.sistema_ventas.modelo.conexionBD.guardarBD.guardarBD_venta_producto;
+import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.*;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.shape.Shape;
-import org.w3c.dom.Document;
 
-import java.io.FileOutputStream;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class venta_Controler implements Initializable {
 
@@ -36,6 +29,7 @@ public class venta_Controler implements Initializable {
     public TableColumn c_cantida;
     public TableColumn c_precio;
     public TableColumn c_total;
+    public TableColumn c_unidad;
     public Label totalVenta;
     public TextField t_producto;
     public Button añadir_producto;
@@ -87,7 +81,8 @@ public class venta_Controler implements Initializable {
 
         c_producto.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         c_cantida.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
-        c_precio.setCellValueFactory(new PropertyValueFactory<>("precio_x_unidad"));
+        c_precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        c_unidad.setCellValueFactory(new PropertyValueFactory<>("unidad_medida"));
         c_total.setCellValueFactory(new PropertyValueFactory<>("total"));
 
         tabla.setItems(lista_producto);
@@ -97,11 +92,11 @@ public class venta_Controler implements Initializable {
     }
 
     private void calcularTotal() {
-        AtomicInteger total = new AtomicInteger();
+        AtomicReference<Double> total= new AtomicReference<>(0.0);
         lista_producto.forEach(producto -> {
-            total.addAndGet(producto.getTotal());
+            total.updateAndGet(v -> v + producto.getTotal());
         });
-        totalVenta.setText(String.valueOf(total.get()));
+        totalVenta.setText(String.valueOf(total));
     }
 
 
@@ -111,7 +106,7 @@ public class venta_Controler implements Initializable {
 
         try{
 
-            int producto = Integer.parseInt(t_producto.getText());
+            Double producto = (double) Integer.parseInt(t_producto.getText());
 
         } catch (Exception e) {
 
@@ -130,8 +125,8 @@ public class venta_Controler implements Initializable {
             String nombre =CBproducto.getValue().toString();
             producto nuevoProducto = lista_productos.filtered(producto -> producto.getNombre().contains(nombre)).get(0);
             //se crea un nuevo producto a partir del ChoiceBox
-            producto_tabla_venta nuevo = new producto_tabla_venta(nuevoProducto.getId_producto(),nombre,nuevoProducto.getPrecio_x_unidad(),nuevoProducto.getMarca());
-            nuevo.setCantidad(Integer.valueOf(t_producto.getText()));
+            producto_tabla_venta nuevo = new producto_tabla_venta(nuevoProducto.getId_producto(),nombre,nuevoProducto.getPrecio(),nuevoProducto.getMarca(),nuevoProducto.getUnidad_medida());
+            nuevo.setCantidad(Double.valueOf(t_producto.getText()));
 
             if(nuevo.getCantidad()>seleccionarBD_cant_stock_id.cantidad(nuevo.getId_producto())){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -142,7 +137,7 @@ public class venta_Controler implements Initializable {
             }else {
                 //se hace un filtro para ver si el producto ya esta en la lista y si esta se cambia la cantidad de la venta y si no se agrega el producto
                 if (lista_producto.filtered(productoTablaVenta -> productoTablaVenta.getNombre().contains(nombre)).size()!=0){
-                    lista_producto.filtered(producto -> producto.getNombre().contains(nombre)).get(0).setCantidad(Integer.valueOf(t_producto.getText()));
+                    lista_producto.filtered(producto -> producto.getNombre().contains(nombre)).get(0).setCantidad(Double.valueOf(t_producto.getText()));
                 }else {
                     lista_producto.add(nuevo);
                 }
@@ -153,7 +148,6 @@ public class venta_Controler implements Initializable {
     }
 
     public void venta(){
-
 
         if(lista_producto.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -187,7 +181,7 @@ public class venta_Controler implements Initializable {
                 guardarBD_venta_producto guardar = new guardarBD_venta_producto(newventa);
                 guardar.guardarBD();
                 //actualizar stock -
-                cant_stock stock = new cant_stock(producto.getId_producto(),producto.getPrecio_x_unidad(),producto.getCantidad());
+                cant_stock stock = new cant_stock(producto.getId_producto(),producto.getPrecio(),producto.getCantidad());
                 seleccionarBD_cant_stock mostrar =  new seleccionarBD_cant_stock();
                 mostrar.seleccionarBD();
                 stock.setCantidad(seleccionarBD_cant_stock_id.cantidad(producto.getId_producto()) - stock.getCantidad());

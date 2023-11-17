@@ -8,11 +8,11 @@ public class venta_producto {
 
     int id_producto;
 
-    int cant_venta;
+    double cant_venta;
 
-    int total;
+    double total;
 
-    public venta_producto(int id_venta, int id_producto, int cant_venta, int total) {
+    public venta_producto(int id_venta, int id_producto, Double cant_venta, double total) {
 
         this.id_venta = id_venta;
         this.id_producto = id_producto;
@@ -44,18 +44,18 @@ public class venta_producto {
         this.id_producto = id_producto;
     }
 
-    public int getCant_venta() {
+    public double getCant_venta() {
         return cant_venta;
     }
 
-    public void setCant_venta(int cant_venta) {
+    public void setCant_venta(double cant_venta) {
         this.cant_venta = cant_venta;
     }
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 }

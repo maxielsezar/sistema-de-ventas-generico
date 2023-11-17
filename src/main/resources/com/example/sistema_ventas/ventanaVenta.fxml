@@ -3,15 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.venta_Controler">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="971.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.venta_Controler">
    <children>
-      <TableView fx:id="tabla" layoutX="4.0" layoutY="53.0" prefHeight="200.0" prefWidth="806.0">
+      <TableView fx:id="tabla" layoutX="4.0" layoutY="53.0" prefHeight="200.0" prefWidth="935.0">
         <columns>
           <TableColumn fx:id="c_producto" prefWidth="210.0" text="producto" />
             <TableColumn fx:id="c_cantida" prefWidth="199.0" text="cantidad" />
-            <TableColumn fx:id="c_precio" prefWidth="169.0" text="precio X unidad" />
+            <TableColumn fx:id="c_precio" prefWidth="177.0" text="precio" />
+            <TableColumn fx:id="c_unidad" prefWidth="190.0" text="unidad medida" />
+            <TableColumn fx:id="c_total" prefWidth="158.0" text="precio total" />
 
-            <TableColumn fx:id="c_total" prefWidth="229.0" text="precio total" />
         </columns>
       </TableView>
       <Button fx:id="añadir_producto" layoutX="344.0" layoutY="260.0" mnemonicParsing="false" onAction="#guardarProducto" prefHeight="45.0" prefWidth="52.0" text="añadir" />
