@@ -12,7 +12,6 @@
             <TableColumn fx:id="c_precio" prefWidth="177.0" text="precio" />
             <TableColumn fx:id="c_unidad" prefWidth="190.0" text="unidad medida" />
             <TableColumn fx:id="c_total" prefWidth="158.0" text="precio total" />
-
         </columns>
       </TableView>
       <Button fx:id="añadir_producto" layoutX="344.0" layoutY="260.0" mnemonicParsing="false" onAction="#guardarProducto" prefHeight="45.0" prefWidth="52.0" text="añadir" />

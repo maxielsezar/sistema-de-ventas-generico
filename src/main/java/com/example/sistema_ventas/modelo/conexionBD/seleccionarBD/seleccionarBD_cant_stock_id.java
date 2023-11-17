@@ -8,7 +8,7 @@ public class seleccionarBD_cant_stock_id {
 
 
 
-   static public int cantidad(int idProducto) {
+   static public double cantidad(int idProducto) {
 
         conexionBD connectionnow = new conexionBD();
         Connection connectDB = connectionnow.getConnection();
@@ -21,7 +21,7 @@ public class seleccionarBD_cant_stock_id {
             ps.setInt(1, idProducto);
             ResultSet queryOutput = ps.executeQuery();
             queryOutput.next();
-            return queryOutput.getInt("cantidad");
+            return queryOutput.getDouble("cantidad");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

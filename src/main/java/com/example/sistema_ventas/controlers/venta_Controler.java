@@ -106,7 +106,7 @@ public class venta_Controler implements Initializable {
 
         try{
 
-            Double producto = (double) Integer.parseInt(t_producto.getText());
+            Double producto =  Double.valueOf(t_producto.getText());
 
         } catch (Exception e) {
 
