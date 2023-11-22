@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class seleccionarBD_producto {
-    static ObservableList<producto> lista = FXCollections.observableArrayList();
 
     static ObservableList<producto_tabla_venta> listaVenta = FXCollections.observableArrayList();
 
@@ -25,20 +24,13 @@ public class seleccionarBD_producto {
         seleccionarBD_producto.listaVenta = listaVenta;
     }
 
-    public static ObservableList<producto> getLista() {
-        seleccionarBD();
-        return lista;
-    }
 
-    public void setLista(ObservableList<producto> lista) {
-        seleccionarBD_producto.lista = lista;
-    }
 
-    public static void seleccionarBD() {
+    public static ObservableList<producto> seleccionarBD() {
 
         conexionBD connectionnow = new conexionBD();
         Connection connectDB = connectionnow.getConnection();
-
+        ObservableList<producto> lista = FXCollections.observableArrayList();
         String ViewQuery = "SELECT id_producto,nombre,precio,marca,unidad_medida FROM producto" ;
 
         try {
@@ -62,5 +54,6 @@ public class seleccionarBD_producto {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return lista;
     }
 }

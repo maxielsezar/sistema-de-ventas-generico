@@ -1,10 +1,14 @@
 package com.example.sistema_ventas.controlers;
 
 import com.example.sistema_ventas.modelo.clases.producto;
+import com.example.sistema_ventas.modelo.conexionBD.guardarBD.guardarBD_producto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.seleccionarBD_producto;
+import com.example.sistema_ventas.modelo.conexionBD.actualizarBD.actualizarBD_producto;
+import javafx.stage.Stage;
 
 public class AgregarProductoControler {
 
@@ -30,14 +34,14 @@ public class AgregarProductoControler {
         this.id = productoActual.getId_producto();
     }
 
-    /*public void agregar() {
+    public void agregar() {
 
-        if(marca.getText().isEmpty() || nombre.getText().isEmpty() || precioUnidad.getText().isEmpty()){
+        if(marca.getText().isEmpty() || nombre.getText().isEmpty() || precio.getText().isEmpty() || unidad_medida.getText().isEmpty()){
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
 
             alert.setTitle("error");
-            alert.setHeaderText("agrege nombre, marca o precio x unidad");
+            alert.setHeaderText("agrege nombre, marca, precio o unidad de medida");
             alert.showAndWait();
 
         }else {
@@ -54,14 +58,15 @@ public class AgregarProductoControler {
 
                                 String marcaa = marca.getText();
                                 String Nombre = nombre.getText();
-                                Integer precio = Integer.valueOf(precioUnidad.getText());
+                                Integer Precio = Integer.valueOf(precio.getText());
+                                String unidadMedida = unidad_medida.getText();
 
+                                Producto = new producto(0, Nombre,Precio,marcaa,unidadMedida);
 
-                                Producto = new producto(0, Nombre,precio,marcaa);
+                                guardarBD_producto.guardarBD(Producto);
 
-
-                                listaDeNotebook = seleccionarDB_notebook.seleccionar();
-                                Notebook.setId(listaDeNotebook.get(listaDeNotebook.size()-1).getId());
+                                listaDeProducto = seleccionarBD_producto.seleccionarBD();
+                                Producto.setId_producto(listaDeProducto.get(listaDeProducto.size()-1).getId_producto());
                                 cerrar();
                             }
                         }
@@ -70,25 +75,25 @@ public class AgregarProductoControler {
 
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add(getClass().getResource("Styles.css").toExternalForm());
-                Image iconoo = new Image(Objects.requireNonNull(getClass().getResourceAsStream("ICONOS/icono-notebook.png")));
-                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-                stage.getIcons().add(iconoo);
-
                 alert.setTitle("Modificar");
-                alert.setHeaderText("¿Desea actualizar la notebook?");
+                alert.setHeaderText("¿Desea actualizar el producto?");
                 alert.showAndWait().ifPresent(
                         response -> {
                             if (response == ButtonType.OK) {
 
+
+
                                 String marcaa = marca.getText();
-                                String modeloo = modelo.getText();
+                                String Nombre = nombre.getText();
+                                Integer Precio = Integer.valueOf(precio.getText());
+                                String unidadMedida = unidad_medida.getText();
 
-                                Notebook.setMarca(marcaa);
-                                Notebook.setModelo(modeloo);
+                                Producto.setMarca(marcaa);
+                                Producto.setNombre(Nombre);
+                                Producto.setPrecio(Precio);
+                                Producto.setUnidad_medida(unidadMedida);
 
-                                actualizarBD_notebook.Actualizar(Notebook);
+                                actualizarBD_producto.ActualizarBD(Producto);
 
                                 cerrar();
                             }
@@ -105,8 +110,8 @@ public class AgregarProductoControler {
 
     }
 
-    public notebook obtenerNuevo() {
-        return Notebook;
-    }*/
+    public producto obtenerNuevo() {
+        return Producto;
+    }
 
 }

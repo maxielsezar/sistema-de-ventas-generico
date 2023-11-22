@@ -11,7 +11,7 @@
       <Label layoutX="12.0" layoutY="14.0" text="nombre" />
       <Label layoutX="12.0" layoutY="140.0" text="marca" />
       <Label layoutX="12.0" layoutY="211.0" text="precio" />
-      <Button fx:id="agregar" layoutX="60.0" layoutY="273.0" mnemonicParsing="false" text="agregar" />
+      <Button fx:id="agregar" layoutX="60.0" layoutY="273.0" mnemonicParsing="false" onAction="#agregar" text="agregar" />
       <TextField fx:id="unidad_medida" layoutX="12.0" layoutY="102.0" />
       <Label layoutX="13.0" layoutY="76.0" text="unidad medida" />
    </children>

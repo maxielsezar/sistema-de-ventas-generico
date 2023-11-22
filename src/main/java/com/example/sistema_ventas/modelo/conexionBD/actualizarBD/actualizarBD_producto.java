@@ -8,9 +8,8 @@ import java.sql.SQLException;
 
 public class actualizarBD_producto {
 
-    producto producto;
 
-    public void ActualizarBD() {
+    public static void ActualizarBD(producto producto) {
 
         conexionBD connectionnow = new conexionBD();
         Connection connectDB = connectionnow.getConnection();

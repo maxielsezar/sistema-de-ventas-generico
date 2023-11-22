@@ -1,4 +1,6 @@
 package com.example.sistema_ventas.controlers;
+import com.example.sistema_ventas.HelloApplication;
+import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.seleccionarBD_producto;
 import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.seleccionarBD_productoStock;
 import com.example.sistema_ventas.modelo.clases.producto;
 import javafx.collections.ObservableList;
@@ -23,7 +25,10 @@ public class ventanaProductoControler implements Initializable {
     public TableColumn<producto, Integer> columna_codigo, columna_precio, columna_stock;
     public TableColumn<producto, String>  columna_nombre, columna_marca, columna_unidad;
 
-    ObservableList<producto> listaproducto = seleccionarBD_productoStock.getLista()  ;
+    ObservableList<producto> listaproductoStock = seleccionarBD_productoStock.getLista();
+
+    ObservableList<producto> listaproducto = seleccionarBD_producto.seleccionarBD();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -35,20 +40,33 @@ public class ventanaProductoControler implements Initializable {
         columna_stock.setCellValueFactory(new PropertyValueFactory<>("stock"));
         columna_unidad.setCellValueFactory(new PropertyValueFactory<>("unidad_medida"));
 
-        tabla_productos.setItems(listaproducto);
+        tabla_productos.setItems(listaproductoStock);
     }
 
     public void agregar() throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("agregar_producto.fxml"));
+        fxmlLoader.setLocation(HelloApplication.class.getResource("agregar_producto.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
         stage.setTitle("agregar");
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.show();
+
+        AgregarProductoControler controlador = fxmlLoader.getController();
+
+        stage.showAndWait();
+
+        if (controlador.obtenerNuevo() != null) {
+            listaproducto.add(controlador.obtenerNuevo());
+        }
+
+        tabla_productos.setItems(listaproducto);
+        tabla_productos.refresh();
     }
 
+    public void actualizar (){
 
+
+    }
 }

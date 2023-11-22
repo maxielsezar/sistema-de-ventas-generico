@@ -37,7 +37,7 @@ public class venta_Controler implements Initializable {
 
     ObservableList<producto_tabla_venta> lista_producto = FXCollections.observableArrayList();
 
-    ObservableList<producto> lista_productos = seleccionarBD_producto.getLista();
+    ObservableList<producto> lista_productos = seleccionarBD_producto.seleccionarBD();
 
     ObservableList<caja> lista_caja = seleccionarBD_caja.getLista();
 
@@ -50,11 +50,14 @@ public class venta_Controler implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         ObservableList<String> listaProductos = FXCollections.observableArrayList();
+
         lista_productos.forEach(producto -> {
                     listaProductos.add(producto.getNombre());
                 }
         );
-        CBproducto.setItems(listaProductos);
+        if (CBproducto.getItems().isEmpty()){
+            CBproducto.setItems(listaProductos);
+        }
 
         ObservableList<String> listacajas = FXCollections.observableArrayList();
         lista_caja.forEach(caja -> {

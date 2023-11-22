@@ -11,12 +11,12 @@ public class guardarBD_producto {
 
     producto producto;
 
-    public void guardarBD() {
+    public static void guardarBD(producto producto) {
 
         conexionBD connectionnow = new conexionBD();
         Connection connectDB = connectionnow.getConnection();
 
-        String InsertQuery = "INSERT into producto (nombre, precio, marca, unidad_medida) values (?,?,?)";
+        String InsertQuery = "INSERT into producto (nombre, precio, marca, unidad_medida) values (?,?,?,?)";
 
         try {
 
