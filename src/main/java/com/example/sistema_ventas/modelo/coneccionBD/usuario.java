@@ -14,6 +14,7 @@ public class usuario {
             PreparedStatement ps = connectDB.prepareStatement(usuarioQuery);
             ps.setString(1, usuario);
             ps.setString(2, pass);
+
             ResultSet queryOutput = ps.executeQuery();
             queryOutput.next();
             return queryOutput.getInt("cantidad");
