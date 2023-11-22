@@ -1,5 +1,6 @@
 package com.example.sistema_ventas.controlers;
 
+import com.example.sistema_ventas.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +22,7 @@ public class administradorController implements Initializable {
     public void VentanaVenta() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("ventanaVenta.fxml"));
+            fxmlLoader.setLocation(HelloApplication.class.getResource("ventanaVenta.fxml"));
 
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -38,7 +39,7 @@ public class administradorController implements Initializable {
     public void VentanaCaja() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("caja-view.fxml"));
+            fxmlLoader.setLocation(HelloApplication.class.getResource("caja-view.fxml"));
 
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -55,7 +56,7 @@ public class administradorController implements Initializable {
     public void VentanaProducto() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("productos-ventas-view.fxml"));
+            fxmlLoader.setLocation(HelloApplication.class.getResource("productos-ventas-view.fxml"));
 
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -72,7 +73,7 @@ public class administradorController implements Initializable {
     public void VentanaEmpleado() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("lista-empleado-view.fxml"));
+            fxmlLoader.setLocation(HelloApplication.class.getResource("lista-empleado-view.fxml"));
 
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
