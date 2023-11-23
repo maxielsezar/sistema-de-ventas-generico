@@ -23,7 +23,7 @@ public class guardarBD_compra_producto {
             PreparedStatement ps = connectDB.prepareStatement(InsertQuery, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, compra_productos.getId_compra());
             ps.setInt(2, compra_productos.getId_producto());
-            ps.setInt(3, compra_productos.getCant_producto());
+            ps.setDouble(3, compra_productos.getCant_producto());
 
 
             ps.executeUpdate();

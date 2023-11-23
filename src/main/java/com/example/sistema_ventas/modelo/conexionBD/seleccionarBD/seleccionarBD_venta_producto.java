@@ -30,7 +30,7 @@ public  class seleccionarBD_venta_producto {
                 int queryid_venta_producto = queryOutput.getInt("id_venta_producto");
                 int queryid_venta= queryOutput.getInt("id_venta");
                 Double queryid_producto = queryOutput.getDouble("id_producto");
-                int querycant_venta= queryOutput.getInt("cant_venta");
+                double querycant_venta= queryOutput.getDouble("cant_venta");
 
                 lista.add(new venta_producto(queryid_venta_producto, queryid_venta, queryid_producto,querycant_venta));
             }

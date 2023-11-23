@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class AgregarProductoControler {
 
     @FXML
-    public TextField nombre,marca, precio,unidad_medida;
+    public TextField nombre,marca, precio,unidad_medida,cantidad;
     public Button agregar;
 
 
@@ -30,16 +30,16 @@ public class AgregarProductoControler {
         marca.setText(productoActual.getMarca());
         precio.setText(String.valueOf(productoActual.getPrecio()));
         unidad_medida.setText(productoActual.getUnidad_medida());
+        cantidad.setText(String.valueOf(productoActual.getCantidad()));
         agregar.setText("actualizar");
         this.id = productoActual.getId_producto();
     }
 
     public void agregar() {
 
-        if(marca.getText().isEmpty() || nombre.getText().isEmpty() || precio.getText().isEmpty() || unidad_medida.getText().isEmpty()){
+        if(marca.getText().isEmpty() || nombre.getText().isEmpty() || precio.getText().isEmpty() || unidad_medida.getText().isEmpty() || cantidad.getText().isEmpty()){
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-
             alert.setTitle("error");
             alert.setHeaderText("agrege nombre, marca, precio o unidad de medida");
             alert.showAndWait();
@@ -60,8 +60,9 @@ public class AgregarProductoControler {
                                 String Nombre = nombre.getText();
                                 Integer Precio = Integer.valueOf(precio.getText());
                                 String unidadMedida = unidad_medida.getText();
+                                Double Cantidad = Double.valueOf(cantidad.getText());
 
-                                Producto = new producto(0, Nombre,Precio,marcaa,unidadMedida);
+                                Producto = new producto(0, Nombre,Precio,marcaa,unidadMedida, Cantidad);
 
                                 guardarBD_producto.guardarBD(Producto);
 
@@ -87,11 +88,13 @@ public class AgregarProductoControler {
                                 String Nombre = nombre.getText();
                                 Integer Precio = Integer.valueOf(precio.getText());
                                 String unidadMedida = unidad_medida.getText();
+                                Double Cantidad = Double.valueOf(cantidad.getText());
 
                                 Producto.setMarca(marcaa);
                                 Producto.setNombre(Nombre);
                                 Producto.setPrecio(Precio);
                                 Producto.setUnidad_medida(unidadMedida);
+                                Producto.setCantidad(Cantidad);
 
                                 actualizarBD_producto.ActualizarBD(Producto);
 

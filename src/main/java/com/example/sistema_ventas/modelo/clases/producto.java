@@ -12,12 +12,23 @@ public class producto {
 
     String unidad_medida;
 
-    public producto(int id, String nombre, int precio, String marca, String unidad_medida) {
+    Double cantidad;
+
+    public producto(int id, String nombre, int precio, String marca, String unidad_medida, Double cantidad) {
         this.id_producto = id;
         this.nombre = nombre;
         this.precio = precio;
         this.marca = marca;
         this.unidad_medida = unidad_medida;
+        this.cantidad = cantidad;
+    }
+
+    public double getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Double cantidad) {
+        this.cantidad = cantidad;
     }
 
     public int getId_producto() {

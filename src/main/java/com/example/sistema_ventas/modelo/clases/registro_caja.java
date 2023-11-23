@@ -2,9 +2,10 @@ package com.example.sistema_ventas.modelo.clases;
 
 public class registro_caja {
 
+
     int id;
 
-    int id_caja;
+    int id_caja;//el id caja no lo vamos a usar por cuestiones de tiempo
 
     Double capital;
 

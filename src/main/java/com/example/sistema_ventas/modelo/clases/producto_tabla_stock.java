@@ -2,21 +2,18 @@ package com.example.sistema_ventas.modelo.clases;
 
 public class producto_tabla_stock extends producto {
 
-    Integer stock;
+    double cantidad;
 
-
-
-
-    public producto_tabla_stock(int id, String nombre, int precio, String marca, Integer stock, String unidad_medida) {
-        super(id, nombre, precio, marca, unidad_medida);
-        this.stock = stock;
+    public producto_tabla_stock(int id, String nombre, int precio, String marca, String unidad_medida, Double cantidad) {
+        super(id, nombre, precio, marca, unidad_medida, cantidad);
+        this.cantidad = cantidad;
     }
 
-    public Integer getStock() {
-        return stock;
+    public double getCantidad() {
+        return cantidad;
     }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setCantidad(Double cantidad) {
+        this.cantidad = cantidad;
     }
 }

@@ -1,16 +1,16 @@
 package com.example.sistema_ventas.modelo.clases;
 
 public class producto_tabla_venta extends producto{
-    Double cantidad=1.0;
+    double cantidad=1.0;
 
     int total;
 
-    public producto_tabla_venta(int id, String nombre, int precio, String marca, String unidad_medida) {
-        super(id, nombre, precio, marca, unidad_medida);
+    public producto_tabla_venta(int id, String nombre, int precio, String marca, String unidad_medida, Double cantidad) {
+        super(id, nombre, precio, marca, unidad_medida, cantidad);
     }
 
 
-    public Double getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 
@@ -18,7 +18,7 @@ public class producto_tabla_venta extends producto{
         this.cantidad = cantidad;
     }
 
-    public Double getTotal() {
+    public double getTotal() {
         return cantidad * precio;
     }
 

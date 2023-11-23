@@ -12,7 +12,7 @@ public class venta_producto {
 
     double total;
 
-    public venta_producto(int id_venta, int id_producto, Double cant_venta, double total) {
+    public venta_producto(int id_venta, int id_producto, double cant_venta, double total) {
 
         this.id_venta = id_venta;
         this.id_producto = id_producto;

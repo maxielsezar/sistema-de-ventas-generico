@@ -6,8 +6,6 @@ import java.sql.*;
 
 public class seleccionarBD_cant_stock_id {
 
-
-
    static public double cantidad(int idProducto) {
 
         conexionBD connectionnow = new conexionBD();
@@ -16,7 +14,6 @@ public class seleccionarBD_cant_stock_id {
         String ViewQuery = "SELECT cantidad FROM cantidad_stock where producto=?";
 
         try {
-
             PreparedStatement ps = connectDB.prepareStatement(ViewQuery);
             ps.setInt(1, idProducto);
             ResultSet queryOutput = ps.executeQuery();

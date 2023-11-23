@@ -43,9 +43,6 @@ public class venta_Controler implements Initializable {
 
     ObservableList<empleado> lista_empleado = seleccionarBD_empleado.getLista();
 
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -78,8 +75,6 @@ public class venta_Controler implements Initializable {
         pagos.add("efectivo");
         pagos.add("tarjeta");
         tipoPago.setItems(pagos);
-
-
 
 
         c_producto.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -121,14 +116,15 @@ public class venta_Controler implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText(error);
             alert.showAndWait();
+
         }else {
-
-
 
             String nombre =CBproducto.getValue().toString();
             producto nuevoProducto = lista_productos.filtered(producto -> producto.getNombre().contains(nombre)).get(0);
+
             //se crea un nuevo producto a partir del ChoiceBox
-            producto_tabla_venta nuevo = new producto_tabla_venta(nuevoProducto.getId_producto(),nombre,nuevoProducto.getPrecio(),nuevoProducto.getMarca(),nuevoProducto.getUnidad_medida());
+
+            producto_tabla_venta nuevo = new producto_tabla_venta(nuevoProducto.getId_producto(),nombre,nuevoProducto.getPrecio(),nuevoProducto.getMarca(),nuevoProducto.getUnidad_medida(), (double) nuevoProducto.getCantidad());
             nuevo.setCantidad(Double.valueOf(t_producto.getText()));
 
             if(nuevo.getCantidad()>seleccionarBD_cant_stock_id.cantidad(nuevo.getId_producto())){
@@ -141,9 +137,7 @@ public class venta_Controler implements Initializable {
                 //se hace un filtro para ver si el producto ya esta en la lista y si esta se cambia la cantidad de la venta y si no se agrega el producto
                 if (lista_producto.filtered(productoTablaVenta -> productoTablaVenta.getNombre().contains(nombre)).size()!=0){
                     lista_producto.filtered(producto -> producto.getNombre().contains(nombre)).get(0).setCantidad(Double.valueOf(t_producto.getText()));
-                }else {
-                    lista_producto.add(nuevo);
-                }
+                }else {lista_producto.add(nuevo);}
             }
             tabla.refresh();
             calcularTotal();
@@ -174,11 +168,14 @@ public class venta_Controler implements Initializable {
         }else {
             int idcaja = Integer.parseInt(CBcaja.getValue().toString());
             int idempleado = Integer.parseInt(CBempleado.getValue().toString()) ;
+
             String tipoDePago = (String) tipoPago.getValue();
             Double total = Double.valueOf(totalVenta.getText());
+
             venta ventaaa = new venta(0,idcaja,idempleado,tipoDePago,total);
             guardarBD_venta ventaa = new guardarBD_venta(ventaaa);
             ventaa.guardarBD();
+
             lista_producto.forEach(producto -> {
                 venta_producto newventa = new venta_producto(ventaa.getVenta().getId(),producto.getId_producto(),producto.getCantidad(),producto.getTotal());
                 guardarBD_venta_producto guardar = new guardarBD_venta_producto(newventa);

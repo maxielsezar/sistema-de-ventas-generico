@@ -21,7 +21,7 @@ public class actualizarBD_compra_producto {
             PreparedStatement ps = connectDB.prepareStatement(InsertQuery);
             ps.setInt(1, compra_producto.getId_compra());
             ps.setInt(2, compra_producto.getId_producto());
-            ps.setInt(3, compra_producto.getCant_producto());
+            ps.setDouble(3, compra_producto.getCant_producto());
             ps.setInt(3, compra_producto.getId());
 
             ps.executeUpdate();

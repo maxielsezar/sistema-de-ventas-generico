@@ -31,7 +31,7 @@ public class seleccionarBD_producto {
         conexionBD connectionnow = new conexionBD();
         Connection connectDB = connectionnow.getConnection();
         ObservableList<producto> lista = FXCollections.observableArrayList();
-        String ViewQuery = "SELECT id_producto,nombre,precio,marca,unidad_medida FROM producto" ;
+        String ViewQuery = "SELECT id_producto,nombre,precio,marca,unidad_medida,cantidad FROM producto" ;
 
         try {
 
@@ -46,9 +46,10 @@ public class seleccionarBD_producto {
                 String querymarca = queryOutput.getString("marca");
                 String queryunidad_medida = queryOutput.getString("unidad_medida");
 
+                Double querycantidad = queryOutput.getDouble("cantidad");
 
-                lista.add(new producto(queryid_producto, querynombre, queryprecio, querymarca,queryunidad_medida));
-                listaVenta.add(new producto_tabla_venta(queryid_producto, querynombre, queryprecio, querymarca,queryunidad_medida));
+                lista.add(new producto(queryid_producto, querynombre, queryprecio, querymarca,queryunidad_medida, querycantidad));
+                listaVenta.add(new producto_tabla_venta(queryid_producto, querynombre, queryprecio, querymarca,queryunidad_medida, querycantidad));
             }
 
         } catch (SQLException e) {
