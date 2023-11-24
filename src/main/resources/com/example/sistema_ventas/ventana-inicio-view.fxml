@@ -4,18 +4,44 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.VentanaInicioController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.VentanaInicioController">
    <children>
-      <TabPane layoutX="9.0" layoutY="12.0" prefHeight="359.0" prefWidth="555.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="28.0" layoutY="11.0" prefHeight="393.0" prefWidth="617.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Caja">
                 <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                         <Label layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="90.0" text="hola wuey" />
+                     </children></AnchorPane>
                 </content>
             </Tab>
             <Tab text="Venta">
                 <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="617.0">
+                     <children>
+                         <TableView fx:id="tabla" layoutX="13.0" layoutY="47.0" prefHeight="215.0" prefWidth="590.0">
+                             <columns>
+                                 <TableColumn fx:id="c_producto" prefWidth="131.0" text="producto" />
+                                 <TableColumn fx:id="c_cantida" prefWidth="119.0" text="cantidad" />
+                                 <TableColumn fx:id="c_precio" prefWidth="102.0" text="precio " />
+                                 <TableColumn fx:id="c_unidad_medida" prefWidth="140.0" text="unidad de medida" />
+                                 <TableColumn fx:id="c_total" prefWidth="97.0" text="precio total" />
+                             </columns>
+                         </TableView>
+                         <Button fx:id="añadir_producto" layoutX="342.0" layoutY="278.0" mnemonicParsing="false" onAction="#guardarProducto" prefHeight="28.0" prefWidth="52.0" text="añadir" />
+                         <ChoiceBox fx:id="CBproducto" layoutX="14.0" layoutY="267.0" prefWidth="150.0" />
+                         <Label layoutX="430.0" layoutY="267.0" text="total de venta " />
+                         <Label fx:id="totalVenta" layoutX="423.0" layoutY="284.0" prefHeight="25.0" prefWidth="137.0" />
+                         <TextField fx:id="t_producto" layoutX="175.0" layoutY="267.0" />
+                         <Button fx:id="realizarCompra" layoutX="90.0" layoutY="304.0" mnemonicParsing="false" onAction="#venta" prefHeight="24.0" prefWidth="171.0" text="realizar compra" />
+                         <ChoiceBox fx:id="tipoPago" layoutX="319.0" layoutY="336.0" prefHeight="25.0" prefWidth="132.0" />
+                         <Label layoutX="359.0" layoutY="316.0" text="tipo de pago" />
+                         <ChoiceBox fx:id="CBcaja" layoutX="104.0" layoutY="14.0" prefHeight="25.0" prefWidth="52.0" />
+                         <Label layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="90.0" text="numero de caja:" />
+                         <ChoiceBox fx:id="CBempleado" layoutX="282.0" layoutY="14.0" prefHeight="25.0" prefWidth="52.0" />
+                         <Label layoutX="192.0" layoutY="18.0" prefHeight="17.0" prefWidth="90.0" text="id de empleado:" />
+                     </children></AnchorPane>
                 </content>
             </Tab>
             <Tab text="Stocks de productos">
@@ -31,7 +57,7 @@
                               <TableColumn fx:id="tp_precio" prefWidth="98.0" text="Precio" />
                           </columns>
                         </TableView>
-                        <Button fx:id="modicar_producto" layoutX="437.0" layoutY="16.0" mnemonicParsing="false" text="Agregar" />
+                        <Button fx:id="agregar_producto" layoutX="437.0" layoutY="16.0" mnemonicParsing="false" text="Agregar" />
                         <Button fx:id="modicar_producto" layoutX="359.0" layoutY="16.0" mnemonicParsing="false" text="Modificar" />
                         <TextField fx:id="buscador_stock" layoutX="60.0" layoutY="16.0" prefHeight="25.0" prefWidth="200.0" promptText="BUSCADOR..." />
                      </children></AnchorPane>
