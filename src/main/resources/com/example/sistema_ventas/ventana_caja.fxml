@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="557.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.VentanaCajacontroler">
+   <children>
+      <TableView fx:id="tabla_caja" layoutX="129.0" layoutY="184.0" prefHeight="323.0" prefWidth="511.0">
+        <columns>
+          <TableColumn fx:id="ingresos" prefWidth="218.0" text="Ingresos" />
+          <TableColumn fx:id="egresos" prefWidth="190.0" text="Egresos" />
+            <TableColumn fx:id="fecha" prefWidth="105.0" text="Día" />
+        </columns>
+      </TableView>
+      <Label layoutX="129.0" layoutY="106.0" text="capital inicial:" />
+      <Label layoutX="207.0" layoutY="106.0" text="Label" />
+      <Label layoutX="336.0" layoutY="106.0" text="capital final:" />
+      <Label layoutX="414.0" layoutY="106.0" text="Label" />
+      <DatePicker layoutX="510.0" layoutY="102.0" prefHeight="25.0" prefWidth="130.0" />
+      <Label layoutX="510.0" layoutY="85.0" text="Busqueda de fecha:" />
+      <Label layoutX="129.0" layoutY="158.0" text="Visualizando mes : &quot;?&quot;" />
+   </children>
+</AnchorPane>
