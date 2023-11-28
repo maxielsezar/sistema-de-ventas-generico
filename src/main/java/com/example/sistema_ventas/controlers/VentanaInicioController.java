@@ -1,12 +1,14 @@
 package com.example.sistema_ventas.controlers;
 
 import com.example.sistema_ventas.modelo.clases.*;
-import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.seleccionarBD_caja;
+import com.example.sistema_ventas.modelo.conexionBD.actualizarBD.actualizarBD_cant_stock;
+import com.example.sistema_ventas.modelo.conexionBD.guardarBD.guardarBD_registro_caja;
+import com.example.sistema_ventas.modelo.conexionBD.guardarBD.guardarBD_venta_producto;
+import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.*;
 
-import com.example.sistema_ventas.modelo.conexionBD.*;
-import com.example.sistema_ventas.HelloApplication;
-import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.seleccionarBD_empleado;
-import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.seleccionarBD_producto;
+import com.example.sistema_ventas.aplicacion;
+import com.example.sistema_ventas.modelo.conexionBD.guardarBD.guardarBD_venta;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,7 +23,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class VentanaInicioController implements Initializable {
 
@@ -42,6 +44,15 @@ public class VentanaInicioController implements Initializable {
     public ChoiceBox tipoPago;
     public TableColumn c_unidad_medida;
 
+    @FXML
+    public TableView<producto> tabla_productos;
+    public TableColumn<producto, Integer> columna_codigo, columna_precio;
+    public TableColumn<producto, Double> columna_stock;
+    public TableColumn<producto, String>  columna_nombre, columna_marca, columna_unidad;
+    public Button nuevo_producto;
+    public Button modificar_producto;
+    public Button borrar_producto;
+
 
     ObservableList<producto_tabla_venta> lista_producto = FXCollections.observableArrayList();
 
@@ -50,6 +61,10 @@ public class VentanaInicioController implements Initializable {
     ObservableList<caja> lista_caja = seleccionarBD_caja.getLista();
 
     ObservableList<empleado> lista_empleado = seleccionarBD_empleado.getLista();
+
+    ObservableList<producto> listaproductoStock = seleccionarBD_productoStock.getLista();
+
+    ObservableList<producto> listaproducto = seleccionarBD_producto.seleccionarBD();
 
 
 
@@ -88,20 +103,83 @@ public class VentanaInicioController implements Initializable {
 
         c_producto.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         c_cantida.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
-        c_precio.setCellValueFactory(new PropertyValueFactory<>("precio_x_unidad"));
+        c_precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        c_unidad_medida.setCellValueFactory(new PropertyValueFactory<>("unidad_medida"));
         c_total.setCellValueFactory(new PropertyValueFactory<>("total"));
 
         tabla.setItems(lista_producto);
 
+        columna_codigo.setCellValueFactory(new PropertyValueFactory<>("id_producto"));
+        columna_nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        columna_marca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        columna_precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        columna_unidad.setCellValueFactory(new PropertyValueFactory<>("unidad_medida"));
+        columna_stock.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+
+        tabla_productos.setItems(listaproductoStock);
+
         calcularTotal();
     }
 
+    public void actualizar () throws IOException {
+
+        producto productoActual =  tabla_productos.getSelectionModel().getSelectedItem();
+
+        if (productoActual == null) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+
+            alert.setTitle("error");
+            alert.setHeaderText("seleccione un producto");
+            alert.show();
+
+        } else {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(aplicacion.class.getResource("agregar_producto.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Actualizar");
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            AgregarProductoControler controlador = fxmlLoader.getController();
+            controlador.parametros(productoActual);
+
+            stage.showAndWait();
+
+            tabla_productos.refresh();
+        }
+    }
+
+    public void agregarProducto() throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(aplicacion.class.getResource("agregar_producto.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("agregar");
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        AgregarProductoControler controlador = fxmlLoader.getController();
+
+        stage.showAndWait();
+
+        if (controlador.obtenerNuevo() != null) {
+            listaproducto.add(controlador.obtenerNuevo());
+        }
+
+        tabla_productos.setItems(listaproductoStock);
+        tabla_productos.refresh();
+    }
+
     private void calcularTotal() {
-        AtomicInteger total = new AtomicInteger();
+        AtomicReference<Double> total= new AtomicReference<>(0.0);
         lista_producto.forEach(producto -> {
-            total.addAndGet(producto.getTotal());
+            total.updateAndGet(v -> v + producto.getTotal());
         });
-        totalVenta.setText(String.valueOf(total.get()));
+        totalVenta.setText(String.valueOf(total));
     }
 
     public void guardarProducto(){
@@ -110,7 +188,7 @@ public class VentanaInicioController implements Initializable {
 
         try{
 
-            int producto = Integer.parseInt(t_producto.getText());
+            Double producto =  Double.valueOf(t_producto.getText());
 
         } catch (Exception e) {
 
@@ -122,17 +200,18 @@ public class VentanaInicioController implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText(error);
             alert.showAndWait();
+
         }else {
-
-
 
             String nombre =CBproducto.getValue().toString();
             producto nuevoProducto = lista_productos.filtered(producto -> producto.getNombre().contains(nombre)).get(0);
-            //se crea un nuevo producto a partir del ChoiceBox
-            producto_tabla_venta nuevo = new producto_tabla_venta(nuevoProducto.getId_producto(),nombre,nuevoProducto.getPrecio_x_unidad(),nuevoProducto.getMarca());
-            nuevo.setCantidad(Integer.valueOf(t_producto.getText()));
 
-            if(nuevo.getCantidad()> seleccionarBD_cant_stock_id.cantidad(nuevo.getId_producto())){
+            //se crea un nuevo producto a partir del ChoiceBox
+
+            producto_tabla_venta nuevo = new producto_tabla_venta(nuevoProducto.getId_producto(),nombre,nuevoProducto.getPrecio(),nuevoProducto.getMarca(),nuevoProducto.getUnidad_medida(), (double) nuevoProducto.getCantidad());
+            nuevo.setCantidad(Double.valueOf(t_producto.getText()));
+
+            if(nuevo.getCantidad()>seleccionarBD_cant_stock_id.cantidad(nuevo.getId_producto())){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("ERROR");
                 alert.setHeaderText("no queda stock disponible del producto seleccionado");
@@ -141,10 +220,8 @@ public class VentanaInicioController implements Initializable {
             }else {
                 //se hace un filtro para ver si el producto ya esta en la lista y si esta se cambia la cantidad de la venta y si no se agrega el producto
                 if (lista_producto.filtered(productoTablaVenta -> productoTablaVenta.getNombre().contains(nombre)).size()!=0){
-                    lista_producto.filtered(producto -> producto.getNombre().contains(nombre)).get(0).setCantidad(Integer.valueOf(t_producto.getText()));
-                }else {
-                    lista_producto.add(nuevo);
-                }
+                    lista_producto.filtered(producto -> producto.getNombre().contains(nombre)).get(0).setCantidad(Double.valueOf(t_producto.getText()));
+                }else {lista_producto.add(nuevo);}
             }
             tabla.refresh();
             calcularTotal();
@@ -152,7 +229,6 @@ public class VentanaInicioController implements Initializable {
     }
 
     public void venta(){
-
 
         if(lista_producto.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -176,17 +252,20 @@ public class VentanaInicioController implements Initializable {
         }else {
             int idcaja = Integer.parseInt(CBcaja.getValue().toString());
             int idempleado = Integer.parseInt(CBempleado.getValue().toString()) ;
+
             String tipoDePago = (String) tipoPago.getValue();
             Double total = Double.valueOf(totalVenta.getText());
+
             venta ventaaa = new venta(0,idcaja,idempleado,tipoDePago,total);
             guardarBD_venta ventaa = new guardarBD_venta(ventaaa);
             ventaa.guardarBD();
+
             lista_producto.forEach(producto -> {
                 venta_producto newventa = new venta_producto(ventaa.getVenta().getId(),producto.getId_producto(),producto.getCantidad(),producto.getTotal());
                 guardarBD_venta_producto guardar = new guardarBD_venta_producto(newventa);
                 guardar.guardarBD();
                 //actualizar stock -
-                cant_stock stock = new cant_stock(producto.getId_producto(),producto.getPrecio_x_unidad(),producto.getCantidad());
+                cant_stock stock = new cant_stock(producto.getId_producto(),producto.getPrecio(),producto.getCantidad());
                 seleccionarBD_cant_stock mostrar =  new seleccionarBD_cant_stock();
                 mostrar.seleccionarBD();
                 stock.setCantidad(seleccionarBD_cant_stock_id.cantidad(producto.getId_producto()) - stock.getCantidad());

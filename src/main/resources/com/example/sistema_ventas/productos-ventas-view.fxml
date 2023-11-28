@@ -21,7 +21,7 @@
          <TableColumn fx:id="columna_stock" prefWidth="127.0" text="Cantidad" />
      </columns>
    </TableView>
-   <Button fx:id="nuevo_producto" layoutX="246.0" layoutY="238.0" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="95.0" text="Agregar" />
+   <Button fx:id="nuevo_producto" layoutX="246.0" layoutY="238.0" mnemonicParsing="false" onAction="#agregarProducto" prefHeight="25.0" prefWidth="95.0" text="Agregar" />
    <Button fx:id="modificar_producto" layoutX="349.0" layoutY="238.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="25.0" prefWidth="96.0" text="Modificar" />
    <Button fx:id="borrar_producto" layoutX="454.0" layoutY="238.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Borrar" />
 

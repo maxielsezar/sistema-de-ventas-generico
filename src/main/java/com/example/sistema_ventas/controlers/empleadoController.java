@@ -1,6 +1,6 @@
 package com.example.sistema_ventas.controlers;
 
-import com.example.sistema_ventas.HelloApplication;
+import com.example.sistema_ventas.aplicacion;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,7 +26,7 @@ public class empleadoController implements Initializable {
     public void VentanaVenta() throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(HelloApplication.class.getResource("ventanaVenta.fxml"));
+        fxmlLoader.setLocation(aplicacion.class.getResource("ventanaVenta.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
@@ -40,7 +40,7 @@ public class empleadoController implements Initializable {
     public void VentanaCaja() throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(HelloApplication.class.getResource("caja-view.fxml"));
+        fxmlLoader.setLocation(aplicacion.class.getResource("caja-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
@@ -54,7 +54,7 @@ public class empleadoController implements Initializable {
     public void VentanaProducto() throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(HelloApplication.class.getResource("productos-ventas-view.fxml"));
+        fxmlLoader.setLocation(aplicacion.class.getResource("productos-ventas-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();

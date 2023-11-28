@@ -1,5 +1,5 @@
 package com.example.sistema_ventas.controlers;
-import com.example.sistema_ventas.HelloApplication;
+import com.example.sistema_ventas.aplicacion;
 import com.example.sistema_ventas.modelo.clases.producto_tabla_stock;
 import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.seleccionarBD_producto;
 import com.example.sistema_ventas.modelo.conexionBD.seleccionarBD.seleccionarBD_productoStock;
@@ -14,13 +14,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ventanaProductoControler implements Initializable {
@@ -52,10 +50,10 @@ public class ventanaProductoControler implements Initializable {
         tabla_productos.setItems(listaproductoStock);
     }
 
-    public void agregar() throws IOException {
+    public void agregarProducto() throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(HelloApplication.class.getResource("agregar_producto.fxml"));
+        fxmlLoader.setLocation(aplicacion.class.getResource("agregar_producto.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
         stage.setTitle("agregar");
@@ -89,7 +87,7 @@ public class ventanaProductoControler implements Initializable {
         } else {
 
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(HelloApplication.class.getResource("agregar_producto.fxml"));
+            fxmlLoader.setLocation(aplicacion.class.getResource("agregar_producto.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
             stage.setTitle("Actualizar");
