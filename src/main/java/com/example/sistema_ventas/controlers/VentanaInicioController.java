@@ -6,11 +6,9 @@ import com.example.sistema_ventas.modelo.coneccionBD.guardarBD.guardarBD_registr
 import com.example.sistema_ventas.modelo.coneccionBD.guardarBD.guardarBD_venta;
 import com.example.sistema_ventas.modelo.coneccionBD.guardarBD.guardarBD_venta_producto;
 import com.example.sistema_ventas.modelo.coneccionBD.seleccionarBD.*;
-import com.example.sistema_ventas.modelo.coneccionBD.usuario;
-import com.example.sistema_ventas.HelloApplication;
+import com.example.sistema_ventas.aplicacion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -43,6 +41,8 @@ public class VentanaInicioController implements Initializable {
     public TextField t_producto;
     public Button añadir_producto;
     public ChoiceBox tipoPago;
+    public TableColumn c_unidad_medida;
+
 
     ObservableList<producto_tabla_venta> lista_producto = FXCollections.observableArrayList();
 
@@ -210,7 +210,7 @@ public class VentanaInicioController implements Initializable {
     public void btnIngresar(){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(HelloApplication.class.getResource("inicio-administrador-view.fxml"));
+            fxmlLoader.setLocation(aplicacion.class.getResource("inicio-administrador-view.fxml"));
 
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -226,7 +226,7 @@ public class VentanaInicioController implements Initializable {
     public void btnEmpleado(){
         try {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(HelloApplication.class.getResource("inicio-empleado-view.fxml"));
+        fxmlLoader.setLocation(aplicacion.class.getResource("inicio-empleado-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();

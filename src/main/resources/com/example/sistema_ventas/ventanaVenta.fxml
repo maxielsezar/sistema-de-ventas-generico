@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.venta_Controler">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <TableView fx:id="tabla" layoutX="4.0" layoutY="53.0" prefHeight="200.0" prefWidth="806.0">
         <columns>
@@ -14,12 +14,12 @@
             <TableColumn fx:id="c_total" prefWidth="215.0" text="precio total" />
         </columns>
       </TableView>
-      <Button fx:id="añadir_producto" layoutX="344.0" layoutY="260.0" mnemonicParsing="false" onAction="#guardarProducto" prefHeight="45.0" prefWidth="52.0" text="añadir" />
+      <Button fx:id="añadir_producto" layoutX="344.0" layoutY="260.0" mnemonicParsing="false"  prefHeight="45.0" prefWidth="52.0" text="añadir" />
       <ChoiceBox fx:id="CBproducto" layoutX="14.0" layoutY="262.0" prefWidth="150.0" />
       <Label layoutX="430.0" layoutY="262.0" text="total de venta " />
       <Label fx:id="totalVenta" layoutX="423.0" layoutY="279.0" prefHeight="25.0" prefWidth="288.0" />
       <TextField fx:id="t_producto" layoutX="175.0" layoutY="262.0" />
-      <Button fx:id="realizarCompra" layoutX="92.0" layoutY="319.0" mnemonicParsing="false" onAction="#venta" prefHeight="51.0" prefWidth="171.0" text="realizar compra" />
+      <Button fx:id="realizarCompra" layoutX="92.0" layoutY="319.0" mnemonicParsing="false"  prefHeight="51.0" prefWidth="171.0" text="realizar compra" />
       <ChoiceBox fx:id="tipoPago" layoutX="319.0" layoutY="336.0" prefHeight="25.0" prefWidth="132.0" />
       <Label layoutX="359.0" layoutY="311.0" text="tipo de pago" />
       <ChoiceBox fx:id="CBcaja" layoutX="104.0" layoutY="14.0" prefHeight="25.0" prefWidth="52.0" />

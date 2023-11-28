@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<TabPane layoutX="28.0" layoutY="11.0" prefHeight="506.0" prefWidth="617.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.VentanaInicioController">
+<TabPane layoutX="28.0" layoutY="11.0" prefHeight="564.0" prefWidth="666.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.VentanaInicioController">
         <tabs>
           <Tab text="Caja">
                 <content>
@@ -35,7 +35,7 @@
                                     </LinearGradient>
                                 </fill>
                             </Rectangle>
-                            <DatePicker layoutX="46.0" layoutY="145.0" prefHeight="25.0" prefWidth="125.0" />
+                            <DatePicker layoutX="199.0" layoutY="121.0" prefHeight="25.0" prefWidth="134.0" promptText="Seleccione fecha" />
                             <TableView layoutX="26.0" layoutY="175.0" prefHeight="255.0" prefWidth="551.0">
                                 <columns>
                                     <TableColumn fx:id="columna_ingreso" prefWidth="190.0" text="Ingreso" />
@@ -48,14 +48,14 @@
                                     <Font name="Roboto Light" size="39.0" />
                                 </font>
                             </Text>
-                            <Label layoutX="269.0" layoutY="145.0" text="\$ Inicial:" />
-                            <Label layoutX="413.0" layoutY="145.0" text="\$ Final:" />
-                            <Label layoutX="46.0" layoutY="120.0" text="Mes seleccionado:" />
-                            <Label fx:id="mes_seleccionado" layoutX="153.0" layoutY="120.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
-                            <Label fx:id="capital_inicial" layoutX="317.0" layoutY="145.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
-                            <Label fx:id="capital_final" layoutX="460.0" layoutY="145.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
-                            <Label layoutX="269.0" layoutY="120.0" text="Balance Mensual:" />
-                            <Label fx:id="balance_mensual" layoutX="372.0" layoutY="120.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+                            <Label layoutX="343.0" layoutY="112.0" text="capital Inicial:" />
+                            <Label layoutX="346.0" layoutY="145.0" text="capital Final:" />
+                            <Label layoutX="28.0" layoutY="103.0" text="Mes seleccionado:" />
+                            <Label fx:id="mes_seleccionado" layoutX="136.0" layoutY="104.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+                            <Label fx:id="capital_inicial" layoutX="427.0" layoutY="112.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+                            <Label fx:id="capital_final" layoutX="427.0" layoutY="145.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+                            <Label layoutX="31.0" layoutY="145.0" text="Balance Mensual:" />
+                            <Label fx:id="balance_mensual" layoutX="136.0" layoutY="145.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
                         </children>
                     </AnchorPane>
                 </content>
@@ -78,7 +78,7 @@
                          <Label layoutX="430.0" layoutY="267.0" text="total de venta " />
                          <Label fx:id="totalVenta" layoutX="423.0" layoutY="284.0" prefHeight="25.0" prefWidth="137.0" />
                          <TextField fx:id="t_producto" layoutX="175.0" layoutY="267.0" />
-                         <Button fx:id="realizarCompra" layoutX="90.0" layoutY="304.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="171.0" text="realizar compra" />
+                         <Button fx:id="realizarCompra" layoutX="90.0" layoutY="304.0" mnemonicParsing="false" onAction="#venta" prefHeight="24.0" prefWidth="171.0" text="realizar compra" />
                          <ChoiceBox fx:id="tipoPago" layoutX="319.0" layoutY="336.0" prefHeight="25.0" prefWidth="132.0" />
                          <Label layoutX="359.0" layoutY="316.0" text="tipo de pago" />
                          <ChoiceBox fx:id="CBcaja" layoutX="104.0" layoutY="14.0" prefHeight="25.0" prefWidth="52.0" />
