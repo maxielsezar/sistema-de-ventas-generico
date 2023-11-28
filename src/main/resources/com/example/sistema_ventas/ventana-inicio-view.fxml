@@ -2,18 +2,62 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.VentanaInicioController">
-   <children>
-      <TabPane layoutX="28.0" layoutY="11.0" prefHeight="393.0" prefWidth="617.0" tabClosingPolicy="UNAVAILABLE">
+<TabPane layoutX="28.0" layoutY="11.0" prefHeight="506.0" prefWidth="617.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_ventas.controlers.VentanaInicioController">
         <tabs>
           <Tab text="Caja">
                 <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                         <Label layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="90.0" text="hola wuey" />
-                     </children></AnchorPane>
+                    <AnchorPane prefHeight="477.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+                        <children>
+                            <Rectangle arcHeight="5.0" arcWidth="5.0" height="379.0" layoutX="15.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="574.0">
+                                <fill>
+                                    <LinearGradient endX="1.0" endY="1.0" startY="0.4265402843601896">
+                                        <stops>
+                                            <Stop>
+                                                <color>
+                                                    <Color red="1.0" green="0.6627451181411743" blue="0.250980406999588" />
+                                                </color>
+                                            </Stop>
+                                            <Stop offset="0.1494252873563218">
+                                                <color>
+                                                    <Color red="1.0" green="0.6627451181411743" blue="0.250980406999588" />
+                                                </color>
+                                            </Stop>
+                                            <Stop offset="1.0">
+                                                <color>
+                                                    <Color red="1.0" green="0.6205000281333923" blue="0.009999999776482582" opacity="0.0" />
+                                                </color>
+                                            </Stop>
+                                        </stops>
+                                    </LinearGradient>
+                                </fill>
+                            </Rectangle>
+                            <DatePicker layoutX="46.0" layoutY="145.0" prefHeight="25.0" prefWidth="125.0" />
+                            <TableView layoutX="26.0" layoutY="175.0" prefHeight="255.0" prefWidth="551.0">
+                                <columns>
+                                    <TableColumn fx:id="columna_ingreso" prefWidth="190.0" text="Ingreso" />
+                                    <TableColumn fx:id="columna_egreso" prefWidth="190.0" text="Egresos" />
+                                    <TableColumn fx:id="columna_fecha" prefWidth="170.0" text="Fecha" />
+                                </columns>
+                            </TableView>
+                            <Text layoutX="243.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CAJA">
+                                <font>
+                                    <Font name="Roboto Light" size="39.0" />
+                                </font>
+                            </Text>
+                            <Label layoutX="269.0" layoutY="145.0" text="\$ Inicial:" />
+                            <Label layoutX="413.0" layoutY="145.0" text="\$ Final:" />
+                            <Label layoutX="46.0" layoutY="120.0" text="Mes seleccionado:" />
+                            <Label fx:id="mes_seleccionado" layoutX="153.0" layoutY="120.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+                            <Label fx:id="capital_inicial" layoutX="317.0" layoutY="145.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+                            <Label fx:id="capital_final" layoutX="460.0" layoutY="145.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+                            <Label layoutX="269.0" layoutY="120.0" text="Balance Mensual:" />
+                            <Label fx:id="balance_mensual" layoutX="372.0" layoutY="120.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+                        </children>
+                    </AnchorPane>
                 </content>
             </Tab>
             <Tab text="Venta">
@@ -29,12 +73,12 @@
                                  <TableColumn fx:id="c_total" prefWidth="97.0" text="precio total" />
                              </columns>
                          </TableView>
-                         <Button fx:id="añadir_producto" layoutX="342.0" layoutY="278.0" mnemonicParsing="false" onAction="#guardarProducto" prefHeight="28.0" prefWidth="52.0" text="añadir" />
+                         <Button fx:id="añadir_producto" layoutX="342.0" layoutY="278.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="52.0" text="añadir" />
                          <ChoiceBox fx:id="CBproducto" layoutX="14.0" layoutY="267.0" prefWidth="150.0" />
                          <Label layoutX="430.0" layoutY="267.0" text="total de venta " />
                          <Label fx:id="totalVenta" layoutX="423.0" layoutY="284.0" prefHeight="25.0" prefWidth="137.0" />
                          <TextField fx:id="t_producto" layoutX="175.0" layoutY="267.0" />
-                         <Button fx:id="realizarCompra" layoutX="90.0" layoutY="304.0" mnemonicParsing="false" onAction="#venta" prefHeight="24.0" prefWidth="171.0" text="realizar compra" />
+                         <Button fx:id="realizarCompra" layoutX="90.0" layoutY="304.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="171.0" text="realizar compra" />
                          <ChoiceBox fx:id="tipoPago" layoutX="319.0" layoutY="336.0" prefHeight="25.0" prefWidth="132.0" />
                          <Label layoutX="359.0" layoutY="316.0" text="tipo de pago" />
                          <ChoiceBox fx:id="CBcaja" layoutX="104.0" layoutY="14.0" prefHeight="25.0" prefWidth="52.0" />
@@ -65,5 +109,3 @@
             </Tab>
         </tabs>
       </TabPane>
-   </children>
-</AnchorPane>
