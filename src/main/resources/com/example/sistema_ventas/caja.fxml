@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="511.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestioncuentas.Controlador">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="379.0" layoutX="15.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="574.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startY="0.4265402843601896">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.6627451181411743" blue="0.250980406999588" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.1494252873563218">
+                     <color>
+                        <Color red="1.0" green="0.6627451181411743" blue="0.250980406999588" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.6205000281333923" blue="0.009999999776482582" opacity="0.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <DatePicker layoutX="46.0" layoutY="145.0" prefHeight="25.0" prefWidth="125.0" />
+      <TableView layoutX="26.0" layoutY="175.0" prefHeight="255.0" prefWidth="551.0">
+        <columns>
+          <TableColumn fx:id="columna_ingreso" prefWidth="190.0" text="Ingreso" />
+          <TableColumn fx:id="columna_egreso" prefWidth="190.0" text="Egresos" />
+            <TableColumn fx:id="columna_fecha" prefWidth="170.0" text="Fecha" />
+        </columns>
+      </TableView>
+      <Text layoutX="243.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CAJA">
+         <font>
+            <Font name="Roboto Light" size="39.0" />
+         </font>
+      </Text>
+      <Label layoutX="269.0" layoutY="145.0" text="\$ Inicial:" />
+      <Label layoutX="413.0" layoutY="145.0" text="\$ Final:" />
+      <Label layoutX="46.0" layoutY="120.0" text="Mes seleccionado:" />
+      <Label fx:id="mes_seleccionado" layoutX="153.0" layoutY="120.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+      <Label fx:id="capital_inicial" layoutX="317.0" layoutY="145.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+      <Label fx:id="capital_final" layoutX="460.0" layoutY="145.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+      <Label layoutX="269.0" layoutY="120.0" text="Balance Mensual:" />
+      <Label fx:id="balance_mensual" layoutX="372.0" layoutY="120.0" prefHeight="17.0" prefWidth="69.0" text="&quot; &quot;" />
+   </children>
+</AnchorPane>
