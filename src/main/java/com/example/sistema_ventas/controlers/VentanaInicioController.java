@@ -46,9 +46,9 @@ public class VentanaInicioController implements Initializable {
 
     @FXML
     public TableView<producto> tabla_productos;
-    public TableColumn<producto, Integer> columna_codigo, columna_precio;
+    public TableColumn<producto, Integer>  columna_precio;
     public TableColumn<producto, Double> columna_stock;
-    public TableColumn<producto, String>  columna_nombre, columna_marca, columna_unidad;
+    public TableColumn<producto, String>  columna_nombre, columna_unidad;
     public Button nuevo_producto;
     public Button modificar_producto;
     public Button borrar_producto;
@@ -62,7 +62,7 @@ public class VentanaInicioController implements Initializable {
 
     ObservableList<empleado> lista_empleado = seleccionarBD_empleado.getLista();
 
-    ObservableList<producto> listaproductoStock = seleccionarBD_productoStock.getLista();
+    ObservableList<producto> listaproductoStock = seleccionarBD_producto.seleccionarBD();
 
     ObservableList<producto> listaproducto = seleccionarBD_producto.seleccionarBD();
 
@@ -109,9 +109,8 @@ public class VentanaInicioController implements Initializable {
 
         tabla.setItems(lista_producto);
 
-        columna_codigo.setCellValueFactory(new PropertyValueFactory<>("id_producto"));
+
         columna_nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        columna_marca.setCellValueFactory(new PropertyValueFactory<>("marca"));
         columna_precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         columna_unidad.setCellValueFactory(new PropertyValueFactory<>("unidad_medida"));
         columna_stock.setCellValueFactory(new PropertyValueFactory<>("cantidad"));

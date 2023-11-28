@@ -93,12 +93,12 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="860.0">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#939597" height="333.0" stroke="BLACK" strokeType="INSIDE" width="555.0" />
-                        <TableView fx:id="tabla_producto" layoutX="60.0" layoutY="54.0" prefHeight="262.0" prefWidth="436.0">
+                        <TableView fx:id="tabla_productos" layoutX="60.0" layoutY="54.0" prefHeight="262.0" prefWidth="436.0">
                             <columns>
-                                <TableColumn fx:id="tp_producto" prefWidth="100.0" text="Producto" />
-                                <TableColumn fx:id="tp_cantidad" prefWidth="107.0" text="Cantidad" />
-                                <TableColumn fx:id="tp_unidad_medida" prefWidth="130.0" text="Unidad Medida" />
-                                <TableColumn fx:id="tp_precio" prefWidth="98.0" text="Precio" />
+                                <TableColumn fx:id="columna_nombre" prefWidth="100.0" text="Producto" />
+                                <TableColumn fx:id="columna_stock" prefWidth="107.0" text="Cantidad" />
+                                <TableColumn fx:id="columna_unidad" prefWidth="130.0" text="Unidad Medida" />
+                                <TableColumn fx:id="columna_precio" prefWidth="98.0" text="Precio" />
                             </columns>
                         </TableView>
                         <Button fx:id="agregar_producto" layoutX="437.0" layoutY="16.0" mnemonicParsing="false" text="Agregar" />
